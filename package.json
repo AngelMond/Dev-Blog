@@ -1,0 +1,26 @@
+{
+  "name": "developers-fun-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelMond/Developers-Fun-Blog.git"
+  },
+  "author": "Angel Mondragon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AngelMond/Developers-Fun-Blog/issues"
+  },
+  "homepage": "https://github.com/AngelMond/Developers-Fun-Blog#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.0"
+  }
+}
