@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers Fun Facts</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body style="min-height: 1200px; padding-top:150px;" class="bg-light">
+
+
+        <header class="row">
+            <nav class=" navbar navbar-expand-sm fixed-top navbar-dark bg-dark ">
+                <div class="container">
+                    <!--LOGO-->
+                    <a href="" class="fs-1 fw-bold navbar-brand">DevBlog</a>
+
+                    <!--Button menu-->
+                    <button 
+                        class="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#menu"
+                        aria-controls="menu" 
+                        aria-expanded="false" 
+                        aria-label="show / hide menu"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                    <!--Menu-->
+                    <div class="row collapse navbar-collapse justify-content-end" id="menu">
+                        <ul class="col-12 col-sm-6 col-md-4 navbar-nav fs-3 ">
+                            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Dashboard</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+      
+        <main class="container ">
+
+                <!--Homepage-->
+            <section class="row m-5" id="posts">
+                {{{body}}}
+            </section>
+           
+            
+        </main>
+
+        <footer class="container-fluid fixed-bottom bg-dark p-4">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <p class="text-white text-center">Developed By Angel Mondragon WEB</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

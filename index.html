@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers Fun Facts</title>
+    <link rel="stylesheet" href="./public/bootstrap/css/bootstrap.min.css">
+</head>
+<body style="min-height: 1200px; padding-top:150px;" class="bg-light">
+
+
+        <header class="row">
+            <nav class=" navbar navbar-expand-sm fixed-top navbar-dark bg-dark ">
+                <div class="container">
+                    <!--LOGO-->
+                    <a href="" class="fs-1 fw-bold navbar-brand">DevBlog</a>
+
+                    <!--Button menu-->
+                    <button 
+                        class="navbar-toggler" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#menu"
+                        aria-controls="menu" 
+                        aria-expanded="false" 
+                        aria-label="show / hide menu"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                    <!--Menu-->
+                    <div class="row collapse navbar-collapse justify-content-end" id="menu">
+                        <ul class="col-12 col-sm-6 col-md-4 navbar-nav fs-3 ">
+                            <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Dashboard</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+      
+        <main class="container ">
+
+            <!--Homepage-->
+            <section class="row m-5" id="posts">
+                <article class="col">
+                    <div class="accordion" id="syllabus">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header  postTitle" id="">
+                                <button 
+                                    class="accordion-button fs-3 fw-bold text-dark" 
+                                    type="button" 
+                                    data-bs-toggle="collapse"
+                                    data-bs-target=".postElement" 
+                                    aria-expanded="true" 
+                                    aria-controls="postElement">
+                                    Post Title
+                                </button>
+                            </h3>
+                            <div id="" 
+                                class="postElement accordion-collapse collapse show" 
+                                aria-labelledby="postTitle"
+                                data-bs-parent="#syllabus">
+                                <!--POST BODY-->
+                                <article class="accordion-body">
+                                    <p class="fs-4">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima earum ducimus laboriosam
+                                        accusamus asperiores porro repellat corporis itaque totam facere.
+                                    </p>
+                                    <!--Author-->
+                                    <blockquote class="author blockquote fs-5 text-muted fst-italic">Posted By Chanchito On
+                                        <span>Date</span></blockquote>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!--FORM TO LOGIN -->
+            <!-- <section class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-10 bg-success text-white rounded-top p-3">
+                        <h3 class="">Login</h3>
+                    </div>
+                    <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-7">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="username">Username</label>
+                                        <input class="form-control border  border-dark" type="text" id="LoginUsername">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="Password">Password</label>
+                                        <input class="form-control border  border-dark" type="password" id="LoginPassword">
+                                    </div>
+
+                                    <div class="mb-3 d-grid">
+                                       <button class="btn btn-outline-success ">Login</button>
+                                    </div>
+
+                                    <div class="mb3 d-grid">
+                                        <a class="link link-danger fs-5 text-decoration-none" href="">Sing Up!</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+
+            <!--FORM TO SING UP-->
+            <!-- <section class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-10 bg-danger text-white rounded-top p-3">
+                        <h3 class="">Resgister</h3>
+                    </div>
+                    <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-7">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="username">Username</label>
+                                        <input class="form-control border  border-dark" type="text" id="SingupUsername">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="Password">Password</label>
+                                        <input class="form-control border  border-dark" type="password" id="SingupPassword">
+                                    </div>
+
+                                    <div class="mb-3 d-grid">
+                                       <button class="btn btn-outline-danger ">Sing Up!</button>
+                                    </div>
+
+                                    <div class="mb3 d-grid">
+                                        <a class="link link-success fs-5 text-decoration-none" href="">Login</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+
+            <!-- Boton para un New Post -->
+            <!-- <div class="row justify-content-center mt-5">
+                <div class="col-6">
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-lg btn-warning fs-2 p-2" type="button">+ New post</button>
+                    </div>
+                </div>
+            </div> -->
+
+            <!--Form to add a comment-->
+            <!-- <section class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-8 bg-dark text-white rounded-top p-3">
+                        <h3 class="">Add comment</h3>
+                    </div>
+                    <div class="col-12 col-lg-8 p-3 rounded-bottom border border-secundary shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-9">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="comment">Write Comment</label>
+                                        <textarea class="form-control" name="comment" id="comment"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Send Comment</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+
+            <!--Comments-->
+            <!-- <section class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-8 bg-dark text-white rounded-top p-3"></div>
+                    <div class="col-12 col-lg-8 p-3 rounded-bottom border border-secundary shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <figure class="text-start">
+                                    <blockquote class="blockquote">
+                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam, vel!
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer mt-2">
+                                        Comment by: <i>Lorem ipsum dolor sit amet.</i>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+            <!-- <section class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-10 bg-dark text-white rounded-top p-3">
+                        <h3 class="">Create New Post</h3>
+                    </div>
+                    <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-7">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="username">Title</label>
+                                        <input class="form-control border  border-dark" type="text" id="postTitle">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="text">Content</label>
+                                        <textarea class="form-control border border-dark" type="text" name="postText" id="postContent"></textarea>
+                                    </div>
+
+                                    <div class="mb-3 d-grid">
+                                       <button class="btn btn-outline-dark" id="btnCreatePost">Create</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+
+
+
+
+
+            <!-- <section class="container">
+                <div class="row justify-content-center ">
+                    <div class="col-12 col-lg-10 bg-dark text-white rounded-top p-3">
+                        <h3 class="">Edit Post</h3>
+                    </div>
+                    <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-md-7">
+                                <form action="">
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="username">Title</label>
+                                        <input class="form-control border  border-dark" type="text" id="editPostTitle">
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label class="form-label fs-5" for="text">Content</label>
+                                        <textarea class="form-control border border-dark" type="text" name="postText" id="editPostContent"></textarea>
+                                    </div>
+
+                                    <div class="mb-3 d-grid" id="btnUpdatePost">
+                                       <button class="btn btn-outline-dark ">Update Post</button>
+                                    </div>
+                                    <div class="mb-3 d-grid">
+                                       <button class="btn btn-outline-dark" id="btnDeletePost">Delete</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> -->
+        </main>
+
+        <footer class="container-fluid fixed-bottom bg-dark p-4">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <p class="text-white text-center">Developed By Angel Mondragon WEB</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./public/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
