@@ -23,22 +23,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//
-app.use(routes);
-
-// sequelize.sync({ force: false }).then(() => {
-//   app.listen(PORT, () => console.log('Now listening'));
-// });
-
-
-
 
 //Turn on routes
-// app.use(routes)
-
-
-// app.listen(PORT, ()=>console.log("Server listening"));
-
+app.use(routes)
 
 
 const init = async ()=>{
@@ -48,7 +35,6 @@ const init = async ()=>{
     }catch(err){
        console.log(err);
        console.log('Unable to connect to Web server and DataBase')
-        
     }
 }
 

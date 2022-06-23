@@ -8,23 +8,23 @@
             <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-7">
-                        <form action="">
+                        <form action="/api/users/singup" method="POST">
                             <div class="mb-3">
                                 <label class="form-label fs-5" for="username">Username</label>
-                                <input class="form-control border  border-dark" type="text" id="SingupUsername">
+                                <input class="form-control border  border-dark" name="username" type="text" id="SingupUsername">
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label fs-5" for="Password">Password</label>
-                                <input class="form-control border  border-dark" type="password" id="SingupPassword">
+                                <input class="form-control border  border-dark" name="password" type="password" id="SingupPassword">
                             </div>
 
                             <div class="mb-3 d-grid">
-                                <button class="btn btn-outline-danger">Sing Up!</button>
+                                <input type="submit" value="Sing Up!" class="btn btn-outline-danger">
                             </div>
 
                             <div class="mb3 d-grid">
-                                <a class="link link-success fs-5 text-decoration-none" href="/api/user/login">Login</a>
+                                <a class="link link-success fs-5 text-decoration-none" href="/api/users/login">Login</a>
                             </div>
                         </form>
                     </div>
