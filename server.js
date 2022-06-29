@@ -5,12 +5,23 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+// Import express-session
+const session = require('express-session');
 
 const routes = require('./controllers/index');
 const sequelize = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Set up sessions
+const sess = {
+    secret: 'Super secret secret',
+    resave: false,
+    saveUninitialized: true,
+  };
+
+app.use(session(sess));
 
 const hbs = exphbs.create({});
 
