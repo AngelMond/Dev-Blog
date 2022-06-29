@@ -25,5 +25,29 @@ router.get('/', async (req,res)=>{
   });
 
 
+  //Render form to create new post
+  router.get('/new-post',  (req, res)=>{
+    try{
+      res.status(200).render('newPost');
+    }catch(err){
+      res.status(500).json(err)
+    }
+  });
+
+
+  //Create new Post
+  router.post('/create-post', async (req, res)=>{
+    try{
+      const createPost = req.body;
+      await Posts.create(createPost)
+
+      res.json(createPost)
+
+    }catch(err){
+      res.status(500).json({message:'Post no creado'});
+    }
+  });
+
+
 
 module.exports = router;

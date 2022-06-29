@@ -71,7 +71,7 @@ router.post('/login', async (req, res) => {
     }
   });
 
-//User singup
+//Create new user
 router.post('/singup', async (req, res)=>{
     try{
         //Catch the user;s input from the singup form
@@ -82,15 +82,7 @@ router.post('/singup', async (req, res)=>{
     }catch(err){
         res.status(400).send({message: 'Ups! something went wrong. User no created.'});
     }
-})
-
-
-router.get('/new-post',  (req, res)=>{
-  try{
-    res.render('newPost');
-  }catch(err){
-    res.status(400).json(err)
-  }
 });
+
 
 module.exports = router;
