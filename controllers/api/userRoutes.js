@@ -63,8 +63,13 @@ router.post('/login', async (req, res) => {
           .send({ message: 'Incorrect password, please try again' });
         return;
       }
-      //If username exists and password is correct, render dashboard
-      res.status(200).render('dashboard');
+      //If username exists and password is correct, create a new session and render 'dashboard'
+       // Set up sessions with a 'loggedIn' variable set to `true`
+       req.session.save(() => {
+        req.session.loggedIn = true;
+
+        res.status(200).redirect('/dashboard');
+      });
       
     } catch (err) {
       res.status(400).json({message: 'No se pudo acceder a la DB'});
@@ -78,11 +83,31 @@ router.post('/singup', async (req, res)=>{
         const newUser = req.body;
         //Creating a new user with the user's input
         await Users.create(newUser);
-        res.status(200).render('dashboard');
+
+        // Set up sessions with a 'loggedIn' variable set to `true`
+        req.session.save(() => {
+          req.session.loggedIn = true;
+
+          res.status(200).render('dashboard');
+        });
     }catch(err){
         res.status(400).send({message: 'Ups! something went wrong. User no created.'});
     }
 });
+
+
+// Logout
+router.get('/logout', (req, res) => {
+  // When the user logs out, destroy the session
+  if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.redirect('/');
+      });
+  } else {
+    res.status(404).end();
+  }
+});
+
 
 
 module.exports = router;

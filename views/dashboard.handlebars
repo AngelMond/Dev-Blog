@@ -1,10 +1,12 @@
 
-
+{{#if loggedIn}}
 <!-- Button to add a new Post -->
 <div class="row justify-content-center mt-5">
     <div class="col-6">
         <div class="d-flex justify-content-center">
-            <a href="/api/users/new-post" class="btn btn-lg btn-warning fs-2 p-2" type="button">+ New post</a>
+            <a href="/api/posts/new-post" class="btn btn-lg btn-warning fs-2 p-2" type="button">+ New post</a>
         </div>
     </div>
 </div>
+{{/if}}
+

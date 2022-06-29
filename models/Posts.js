@@ -20,6 +20,14 @@ Posts.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        // author_id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     references:{
+        //         model: 'users',
+        //         key: 'id'
+        //     }
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -31,7 +39,7 @@ Posts.init(
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'posts'
