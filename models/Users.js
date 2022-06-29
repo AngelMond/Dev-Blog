@@ -30,23 +30,27 @@ Users.init(
         username: {
             type: DataTypes.STRING,
             allowNull: false,
+            unique: true
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             validate:{
-                len: [6]
+                len: [8]
             },
         },
     },
     {
         hooks: {
-            async beforeCreate(userInput){
+
+            beforeCreate: async (userInput) => {
                 userInput.password = await bcrypt.hash(userInput.password, 10);
                 return userInput;
             },
+            beforeUpdate: async (userInput) => {
+                userInput.password = await bcrypt.hash(userInput.password, 10);
+            }
         },
-
         sequelize,
         timestamps: false,
         freezeTableName: true,

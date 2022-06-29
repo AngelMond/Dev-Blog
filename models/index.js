@@ -3,6 +3,7 @@ const Posts = require('./Posts');
 const Comments = require('./Comments');
 
 
+
 //User relationships
 Users.hasMany(Posts, {
     foreignKey: 'user_id',
@@ -30,3 +31,9 @@ Posts.hasMany(Comments, {
 Comments.belongsTo(Posts, {
     foreignKey: 'post_id'
 });
+
+module.exports = {
+    Users,
+    Posts,
+    Comments
+};

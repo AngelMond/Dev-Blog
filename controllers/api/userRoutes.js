@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const Users = require('../../models/Users');
+const {Users, Posts, Comments} = require('../../models');
+
 
 
 //Render user login form
@@ -13,11 +14,40 @@ router.get('/singup',  (req, res)=>{
 });
 
 
+//Test
+router.get('/', async (req,res)=>{
+  try {
+        const userData = await Users.findAll({
+          include:  
+          [{
+            model: Posts,
+            attributes: ['post_title', 'post_content'],
+          },
+          {
+            model: Comments,
+            attributes: ['comment_content']
+          }],
+             attributes: ['id', 'username']
+
+          });
+
+        if (!userData) {
+          res.status(404).json({ message: 'No user with this id!' });
+          return;
+        }
+        res.status(200).json(userData);
+
+      } catch (err) {
+        console.log(err)
+        res.status(500).json({message: 'Solicitud no procesada'});
+      }
+});
+
 //User login
 router.post('/login', async (req, res) => {
     try {
       //Validate if username exists. If username exists go to validate the password
-      const userData = await User.findOne({ where: { username: req.body.username } });
+      const userData = await Users.findOne({ where: { username: req.body.username } });
       if (!userData) {
         res
           .status(400)
@@ -37,7 +67,7 @@ router.post('/login', async (req, res) => {
       res.status(200).render('dashboard');
       
     } catch (err) {
-      res.status(400).json(err);
+      res.status(400).json({message: 'No se pudo acceder a la DB'});
     }
   });
 
