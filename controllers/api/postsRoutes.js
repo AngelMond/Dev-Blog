@@ -25,6 +25,9 @@ router.get('/', async (req,res)=>{
   });
 
 
+
+
+
   //Render form to create new post
   router.get('/new-post',  (req, res)=>{
     try{
