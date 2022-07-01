@@ -1,40 +1,20 @@
-
 <!--Homepage-->
 {{#each userPosts as |post|}}
-<section class="row m-5" id="posts"></section>
+<section class="row m-3" id="posts"></section>
     <article class="col">
-        <div class="accordion" id="syllabus">
-            <div class="accordion-item">
-                <h3 class="accordion-header  postTitle" id="">
-                    <button 
-                        class="accordion-button fs-3 fw-bold text-dark" 
-                        type="button" 
-                        data-bs-toggle="collapse"
-                        data-bs-target=".postElement" 
-                        aria-expanded="true" 
-                        aria-controls="postElement">
-                        {{!-- Post Title --}}
-                        {{post.post_title}}
-                    </button>
-                </h3>
-                <div id="" 
-                    class="postElement accordion-collapse collapse show" 
-                    aria-labelledby="postTitle"
-                    data-bs-parent="#syllabus">
-                    <!--POST BODY-->
-                    <article class="accordion-body">
-                        <p class="fs-4">
-                            {{!-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima earum ducimus laboriosam
-                            accusamus asperiores porro repellat corporis itaque totam facere. --}}
-                            {{post.post_content}}
-                        </p>
-                        <!--Author-->
-                        <blockquote class="author blockquote fs-5 text-muted fst-italic">
-                            Posted By {{post.user.username}}  On <span>{{post.createdAt}} </span>
-                        </blockquote>
-                    </article>
-                </div>
+
+        <div class="row card border rounded border-2 p-3">
+            <h5 class=" col-12 card-header fs-3 fw-bold text-dark">{{post.post_title}}</h5>
+            <div class="col-12 card-body">
+                <p class="card-text fs-4">{{post.post_content}}</p>
             </div>
+            <blockquote class="col-12 author  blockquote text-muted fst-italic fs-6 p-3 mt-5 border-top border-1">
+                        Posted By {{post.user.username}} On <span>{{post.createdAt}} </span>
+            </blockquote>
+            <!--Button to add a comment-->
+                {{#if loggedIn}}
+                 {{>add-comment}}
+               {{/if}}
         </div>
     </article>
 </section>

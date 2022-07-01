@@ -5,6 +5,7 @@ const {Posts, Users} = require('../models')
 
 router.get('/',  async (req, res) => {
 
+  //Get all posts and rendered into homepage
   const userData = await Posts.findAll({
     include: {
       model: Users
@@ -15,7 +16,8 @@ router.get('/',  async (req, res) => {
   // Send the rendered Handlebars.js template back as the response
   res.render('homepage',{
     userPosts,
-    loggedIn: req.session.loggedIn
+    loggedIn: req.session.loggedIn,
+    user: req.session.user
   });
 });
 
@@ -24,6 +26,7 @@ router.get('/dashboard',  (req, res) => {
   // Send the rendered Handlebars.js template back as the response
   res.render('dashboard', {
     loggedIn: req.session.loggedIn,
+    user: req.session.user
   });
 });
 

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Posts, Comments} = require('../../models');
+const {Posts, Comments, Users} = require('../../models');
 
 
 //Test
@@ -31,7 +31,10 @@ router.get('/', async (req,res)=>{
   //Render form to create new post
   router.get('/new-post',  (req, res)=>{
     try{
-      res.status(200).render('newPost');
+      res.status(200).render('newPost',{
+        loggedIn: req.session.loggedIn,
+        user: req.session.user
+      });
     }catch(err){
       res.status(500).json(err)
     }
@@ -41,15 +44,39 @@ router.get('/', async (req,res)=>{
   //Create new Post
   router.post('/create-post', async (req, res)=>{
     try{
-      const createPost = req.body;
-      await Posts.create(createPost)
 
-      res.json(createPost)
+     
+     
+      //Cuando un usuario inicia sesion, guardar en local storage el username para usarlo aqui
+      //y buscar el id con el username y pasarlo al user_id
+
+      //Posibles soluciones: 1- Usar un hook beforeCreate, 2-Hacer lo de LS, 3- Guardar el username en un session
+      // const userId = await Users.findOne({ where: { username: username1} })
+
+
+      // console.log(userId)
+      
+      
+  
+      await Posts.create({
+        post_title: req.body.post_title,
+        post_content: req.body.post_content,
+        user_id:  req.session.user
+      })
+      res.json({message: 'Post creado'})
+
+      // res.json(userId)
+      // console.log(createPost)
+      // res.redirect('/dashboard', {
+      //   loggedIn: req.session.loggedIn
+      // });
 
     }catch(err){
       res.status(500).json({message:'Post no creado'});
     }
   });
+
+
 
 
 

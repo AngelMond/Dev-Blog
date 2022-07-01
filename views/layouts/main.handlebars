@@ -7,14 +7,14 @@
     <title>Developers Fun Facts</title>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 </head>
-<body style="min-height: 1200px; padding-top:150px;" class="bg-light">
+<body style="min-height: 1200px; padding: 150px 10px; " class="bg-light ">
 
 
         <header class="row">
             <nav class=" navbar navbar-expand-sm fixed-top navbar-dark bg-dark ">
                 <div class="container">
                     <!--LOGO-->
-                    <a href="" class="fs-1 fw-bold navbar-brand">DevBlog</a>
+                    <a href="" id="devLog" class="fs-1 fw-bold navbar-brand">DevBlog</a>
 
                     <!--Button menu-->
                     <button 
@@ -40,6 +40,7 @@
                                 <li class="nav-item"><a href="/api/users/logout" class="nav-link">Logout</a></li>
                             {{else}}
                                 <li class="nav-item"><a href="/api/users/login" class="nav-link">Login</a></li>
+                                <li class="nav-item"><a href="/api/users/singup" class="nav-link">Register</a></li>
                             {{/if}}
                         </ul>
                     </div>
@@ -62,6 +63,8 @@
             </div>
         </footer>
     </div>
+    <script src="/js/index.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </body>
 </html>

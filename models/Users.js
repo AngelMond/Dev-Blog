@@ -16,6 +16,10 @@ class Users extends Model{
         }
         return false;
     }
+
+    async getUserId(){
+        return this.id;
+    }
 }
 
 

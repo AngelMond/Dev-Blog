@@ -8,20 +8,20 @@
         <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-7">
-                    <form action="">
+                    <form action="/api/posts/create-post" method="POST">
                         <div class="mb-3">
                             <label class="form-label fs-5" for="username">Title</label>
-                            <input class="form-control border  border-dark" type="text" id="postTitle">
+                            <input class="form-control border  border-dark" type="text" name="post_title">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fs-5" for="text">Content</label>
-                            <textarea class="form-control border border-dark" type="text" name="postText"
+                            <textarea class="form-control border border-dark" type="text" name="post_content"
                                 id="postContent"></textarea>
                         </div>
 
                         <div class="mb-3 d-grid">
-                            <button href="api/posts/formNewPost" class="btn btn-outline-dark" id="btnCreatePost">Create</button>
+                            <input type="submit" class="btn btn-outline-dark" value="Create" id="btnCreatePost">
                         </div>
                     </form>
                 </div>

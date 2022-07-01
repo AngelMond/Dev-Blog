@@ -48,6 +48,11 @@ router.post('/login', async (req, res) => {
     try {
       //Validate if username exists. If username exists go to validate the password
       const userData = await Users.findOne({ where: { username: req.body.username } });
+      // console.log(userData.username);
+      // function userLocalStorage (){
+      //   localStorage.setItem('username', userData.username);
+      // }
+     
       if (!userData) {
         res
           .status(400)
@@ -63,16 +68,20 @@ router.post('/login', async (req, res) => {
           .send({ message: 'Incorrect password, please try again' });
         return;
       }
-      //If username exists and password is correct, create a new session and render 'dashboard'
-       // Set up sessions with a 'loggedIn' variable set to `true`
-       req.session.save(() => {
-        req.session.loggedIn = true;
 
+      
+      //If username exists and password is correct, create a new session and render 'dashboard'
+      // Set up sessions with a 'loggedIn' variable set to `true`
+      req.session.save(() => {
+        req.session.loggedIn = true;
+        req.session.user = userData.id;
+        
         res.status(200).redirect('/dashboard');
       });
       
+      
     } catch (err) {
-      res.status(400).json({message: 'No se pudo acceder a la DB'});
+      res.status(400).json({message: 'Couldnt access to the DB'});
     }
   });
 
@@ -87,7 +96,7 @@ router.post('/singup', async (req, res)=>{
         // Set up sessions with a 'loggedIn' variable set to `true`
         req.session.save(() => {
           req.session.loggedIn = true;
-
+  
           res.status(200).render('dashboard');
         });
     }catch(err){
