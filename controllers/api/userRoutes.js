@@ -3,10 +3,12 @@ const {Users, Posts, Comments} = require('../../models');
 
 
 
+
 //Render user login form
 router.get('/login',  (req, res)=>{
     res.render('login');
 });
+
 
 //Render user singup form
 router.get('/singup',  (req, res)=>{
@@ -14,22 +16,23 @@ router.get('/singup',  (req, res)=>{
 });
 
 
-//Test
-router.get('/', async (req,res)=>{
+//Test to get one user with all posts created for that user
+router.post('/', async (req,res)=>{
   try {
-        const userData = await Users.findAll({
-          include:  
+        const userData = await Users.findOne(
+          {
+            where: { username: req.body.username },
+            include:  
           [{
-            model: Posts,
-            attributes: ['post_title', 'post_content'],
+            model: Posts
           },
           {
             model: Comments,
             attributes: ['comment_content']
           }],
              attributes: ['id', 'username']
-
           });
+
 
         if (!userData) {
           res.status(404).json({ message: 'No user with this id!' });
@@ -43,16 +46,30 @@ router.get('/', async (req,res)=>{
       }
 });
 
+
+
+
 //User login
 router.post('/login', async (req, res) => {
     try {
-      //Validate if username exists. If username exists go to validate the password
-      const userData = await Users.findOne({ where: { username: req.body.username } });
+      //Get the username from the DB and include models Posts and Comments
+      const userData = await Users.findOne(
+        {
+          where: { username: req.body.username },
+        //   include:  
+        // [{
+        //   model: Posts
+        // },
+        // {
+        //   model: Comments,
+        //   attributes: ['comment_content']
+        // }],
+        //    attributes: ['id', 'username']
+        });
       // console.log(userData.username);
-      // function userLocalStorage (){
-      //   localStorage.setItem('username', userData.username);
-      // }
-     
+      // console.log(userData.id);
+      
+      //Validate if the username enter by user exists in the DB
       if (!userData) {
         res
           .status(400)
@@ -60,7 +77,7 @@ router.post('/login', async (req, res) => {
         return;
       }
                              
-      //Validate if the password is correct
+      //Validate if the password match with the password inside our DB
       const validPassword = await userData.validatePassword(req.body.password);
       if (!validPassword) {
         res
@@ -68,22 +85,24 @@ router.post('/login', async (req, res) => {
           .send({ message: 'Incorrect password, please try again' });
         return;
       }
-
-      
-      //If username exists and password is correct, create a new session and render 'dashboard'
+      //If username exists and password is correct, create a new session and render 'dashboard.handlebars'
       // Set up sessions with a 'loggedIn' variable set to `true`
       req.session.save(() => {
         req.session.loggedIn = true;
-        req.session.user = userData.id;
-        
-        res.status(200).redirect('/dashboard');
+        req.session.userId = userData.id;
+        req.session.username = userData.username;
+        // req.session.posts = userData.posts
+        // console.log(req.session)
+
+        res.status(200).redirect("/dashboard");
       });
-      
-      
     } catch (err) {
       res.status(400).json({message: 'Couldnt access to the DB'});
     }
   });
+
+
+
 
 //Create new user
 router.post('/singup', async (req, res)=>{
@@ -97,12 +116,14 @@ router.post('/singup', async (req, res)=>{
         req.session.save(() => {
           req.session.loggedIn = true;
   
-          res.status(200).render('dashboard');
+          res.status(200).redirect('dashboard');
         });
     }catch(err){
         res.status(400).send({message: 'Ups! something went wrong. User no created.'});
     }
 });
+
+
 
 
 // Logout

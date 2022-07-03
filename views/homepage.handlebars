@@ -9,12 +9,13 @@
                 <p class="card-text fs-4">{{post.post_content}}</p>
             </div>
             <blockquote class="col-12 author  blockquote text-muted fst-italic fs-6 p-3 mt-5 border-top border-1">
-                        Posted By {{post.user.username}} On <span>{{post.createdAt}} </span>
+                Posted By {{post.user.username}} On <span>{{post.createdAt}}</span>
             </blockquote>
+
             <!--Button to add a comment-->
-                {{#if loggedIn}}
-                 {{>add-comment}}
-               {{/if}}
+                {{>add-comment}}
+            {{#if loggedIn}}
+            {{/if}}
         </div>
     </article>
 </section>

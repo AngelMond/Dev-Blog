@@ -5,6 +5,7 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
+
 // Import express-session
 const session = require('express-session');
 
@@ -20,6 +21,10 @@ const sess = {
     secret: 'Super secret secret',
     resave: false,
     saveUninitialized: true,
+    cookie: {
+        // Stored in milliseconds (3_600_000 === 1 hour)
+        maxAge: 3_600_000,
+      },
   };
 
 app.use(session(sess));

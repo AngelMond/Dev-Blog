@@ -65,19 +65,19 @@
                             <div id="" 
                                 class="postElement accordion-collapse collapse show" 
                                 aria-labelledby="postTitle"
-                                data-bs-parent="#syllabus">
+                                data-bs-parent="#syllabus"> -->
                                 <!--POST BODY-->
-                                <article class="accordion-body">
+                                <!-- <article class="accordion-body">
                                     <p class="fs-4">
                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minima earum ducimus laboriosam
                                         accusamus asperiores porro repellat corporis itaque totam facere.
-                                    </p>
+                                    </p> -->
                                     <!--Author-->
-                                    <blockquote class="author blockquote fs-5 text-muted fst-italic">Posted By Chanchito On
+                                    <!-- <blockquote class="author blockquote fs-5 text-muted fst-italic">Posted By Chanchito On
                                         <span>Date</span></blockquote>
-                                </article>
+                                </article> -->
                                 <!--Button to add a comment-->
-                                <div class="row justify-content-start p-2">
+                                <!-- <div class="row justify-content-start p-2">
                                     <div class="col-3">
                                         <div class="d-flex justify-content-center">
                                             <button class="btn btn-outline-primary">Add Comment</button>
@@ -213,7 +213,7 @@
                 </div>
             </section> -->
 
-            <section class="container">
+            <!-- <section class="container">
                 <div class="row justify-content-center ">
                     <div class="col-12 col-lg-10 bg-dark text-white rounded-top p-3">
                         <h3 class="">Create New Post</h3>
@@ -240,13 +240,11 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
 
 
 
-
-
-            <section class="container">
+            <!-- <section class="container">
                 <div class="row justify-content-center ">
                     <div class="col-12 col-lg-10 bg-dark text-white rounded-top p-3">
                         <h3 class="">Edit Post</h3>
@@ -276,7 +274,30 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
+
+<!--Card to show the created posts in dashboard-->
+<section class="row m-3" id="posts"></section>
+    <article class="col">
+        <div class="row card border rounded border-2 p-3">
+            <h5 class=" col-12 card-header fs-3 fw-bold text-dark">liam</h5>
+            <div class="col-12 card-body">
+                <p class="card-text fs-4">{{post.post_content}}</p>
+            </div>
+            <!--Button to add a comment-->
+                <!--Button to add a comment in a post-->
+            <div class="row justify-content-start p-2">
+                <div class="col-3">
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-outline-secondary">Edit Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+
         </main>
 
         <footer class="container-fluid fixed-bottom bg-dark p-4">
