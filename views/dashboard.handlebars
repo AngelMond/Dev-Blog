@@ -8,7 +8,7 @@
         </div>
     </div>
 </div>
-    <!--Render all post fro the user session-->
+    <!--Render all post from the user session-->
     {{#each userPosts as |post|}}
         <!--Card to show the created posts in dashboard-->
         <section class="row m-3" id="posts"></section>
@@ -22,7 +22,14 @@
                     <div class="row justify-content-start p-2">
                         <div class="col-6 col-md-3">
                             <div class="d-flex justify-content-center">
-                                <button class="btn btn-outline-secondary">Edit Post</button>
+                                <a href="/api/posts/update-post/{{post.id}}" class="btn btn-outline-secondary">Edit Post</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end p-2">
+                        <div class="col-6 col-md-3">
+                            <div class="d-flex justify-content-center">
+                                Post id: &nbsp; <span class="userPostId">{{post.id}}</span>
                             </div>
                         </div>
                     </div>

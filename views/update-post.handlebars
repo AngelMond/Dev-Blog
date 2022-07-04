@@ -1,4 +1,4 @@
-<!--Create a new post-->
+<!--From to update a post-->
 <section class="container">
     <div class="row justify-content-center ">
         <div class="col-12 col-lg-10 bg-dark text-white rounded-top p-3">
@@ -7,20 +7,24 @@
         <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-7">
-                    <form action="/api/posts/update-post" method="POST">
+                    <form method="POST" action="/api/posts/updated-post/{{getPost.dataValues.id}}" >
                         <div class="mb-3">
                             <label class="form-label fs-5" for="username">Title</label>
-                            <input class="form-control border  border-dark" type="text" name="post_title">
+                            <input class="form-control border  border-dark" value="{{getPost.dataValues.post_title}}" placeholder="" type="text" name="post_title">
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fs-5" for="text">Content</label>
-                            <textarea class="form-control border border-dark" type="text" name="post_content"
-                                id="postContent"></textarea>
+                            <textarea class="form-control border border-dark" placeholder="" type="text" name="post_content"
+                                id="postContent">{{getPost.dataValues.post_content}}</textarea>
                         </div>
 
                         <div class="mb-3 d-grid">
-                            <input type="submit" class="btn btn-outline-dark" value="Create" id="btnCreatePost">
+                            <input type="submit" class="btn btn-outline-dark" value="Update" id="btnCreatePost">
+                        </div>
+                        <!--Button to cancel update-->
+                        <div class="mb-3 d-grid">
+                            <a href="/dashboard" type="button" class="btn btn-outline-dark" id="cancelUpdate">Cancel</a>
                         </div>
                     </form>
                 </div>

@@ -25,9 +25,6 @@ const {Posts, Comments, Users} = require('../../models');
 //   });
 
 
-
-
-
   //Render form to create new post
   router.get('/new-post',  (req, res)=>{
     try{
@@ -86,23 +83,64 @@ const {Posts, Comments, Users} = require('../../models');
   });
 
 
-//Route to update a post
-router.put('/update-post', async (req,res)=>{
+
+//Route to render update-post template
+router.get('/update-post/:id', async (req,res)=>{
   try{
-    //Save the user id from req.session and then give the userId to user_id
-    let userId = req.session.userId;
-    console.log(userId)
-    
-    await Posts.update({
-      post_title: req.body.post_title,
-      post_content: req.body.post_content,
-      id: postId 
+
+    //Get the post selected in order to updated
+    const getPost = await Posts.findOne({where:{id: req.params.id}});
+  
+    res.status(200).render('update-post', {
+      getPost,
+      loggedIn: req.session.loggedIn
     });
+
+  }catch(err){
+    res.status(500).json({message:'Post no encontrado'});
+  }
+});
+
+
+
+//Route to update a post
+router.post('/updated-post/:id', async (req,res)=>{
+  try{
+     await Posts.update(
+      {
+        post_title: req.body.post_title,
+        post_content: req.body.post_content
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    );
     res.status(200).redirect('/dashboard');
 
   }catch(err){
-    res.status(500).json({message:'Post no creado'});
+    res.status(500).json({message:'Post no encontrado'});
   }
 });
+
+//Route to update a post
+// router.put('/update-post/:postId', async (req,res)=>{
+//   try{
+//     //Save the user id from req.session and then give the userId to user_id
+//     let userId = req.session.userId;
+//     console.log(userId)
+    
+//     await Posts.update({
+//       post_title: req.body.post_title,
+//       post_content: req.body.post_content,
+//       id: postId 
+//     });
+//     res.status(200).redirect('/dashboard');
+
+//   }catch(err){
+//     res.status(500).json({message:'Post no creado'});
+//   }
+// });
 
 module.exports = router;
