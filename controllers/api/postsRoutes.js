@@ -124,6 +124,20 @@ router.post('/updated-post/:id', async (req,res)=>{
   }
 });
 
+//Route to delete a post
+router.post('/delete/:id', async (req,res) =>{
+  try{
+    Posts.destroy({
+      where: {
+        id: req.params.id
+      }
+    });
+    res.status(200).redirect('/dashboard');
+  }catch(err){
+    res.status(500).json(err);
+  }
+});
+
 //Route to update a post
 // router.put('/update-post/:postId', async (req,res)=>{
 //   try{
