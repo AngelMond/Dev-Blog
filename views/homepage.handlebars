@@ -12,8 +12,22 @@
                 Posted By {{post.user.username}} On <span>{{post.createdAt}}</span>
             </blockquote>
 
-            <!--Button to add a comment-->
-                {{>add-comment}}
+            
+            <!--Buttonscontainer-->
+            <div class="row justify-content-start p-2">
+                 <!--Button to add a comment in a post-->
+                <div class="col-6 col-md-2">
+                    <div class="d-flex justify-content-center">
+                        <a href="/api/comments/comment-form/{{post.id}}" class="btn btn-outline-secondary">Add Comment</a>
+                    </div>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="d-flex justify-content-center">
+                        <a href="/api/comments/usersComments/{{post.id}}" class="btn btn-outline-secondary">View comments</a>
+                    </div>
+                </div>
+            </div>
+        
             {{#if loggedIn}}
             {{/if}}
         </div>

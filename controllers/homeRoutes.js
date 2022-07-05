@@ -11,7 +11,7 @@ router.get('/',  async (req, res) => {
       model: Users
     }
   });
-  //Get all user's posts an then  rendered into homepage 
+  //Get all user's posts an serialize all 
   const userPosts = userData.map((post)=>post.get({plain:true}));
 
   // Send the rendered Handlebars.js template back as the response

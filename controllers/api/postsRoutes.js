@@ -33,6 +33,7 @@ const {Posts, Comments, Users} = require('../../models');
         userId: req.session.userId,
         username: req.session.username,
       });
+      
 
     }catch(err){
       res.status(500).json(err)

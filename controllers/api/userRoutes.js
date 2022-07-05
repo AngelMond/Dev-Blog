@@ -115,8 +115,7 @@ router.post('/singup', async (req, res)=>{
         // Set up sessions with a 'loggedIn' variable set to `true`
         req.session.save(() => {
           req.session.loggedIn = true;
-  
-          res.status(200).redirect('dashboard');
+          res.status(200).redirect('/');
         });
     }catch(err){
         res.status(400).send({message: 'Ups! something went wrong. User no created.'});

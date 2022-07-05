@@ -1,0 +1,41 @@
+
+
+
+<!--User post-->
+{{#each userPost as |post|}}
+<section class="row m-4" id="posts"></section>
+    <article class="col">
+
+        <div class="row card border rounded border-2 p-3">
+            <h5 class=" col-12 card-header fs-3 fw-bold text-dark">{{post.post_title}}</h5>
+            <div class="col-12 card-body">
+                <p class="card-text fs-4">{{post.post_content}}</p>
+            </div>
+            <blockquote class="col-12 author  blockquote text-muted fst-italic fs-6 p-3 mt-5 border-top border-1">
+                Posted By {{post.user.username}} On <span>{{post.createdAt}}</span>
+            </blockquote>
+        </div>
+    </article>
+</section>
+{{/each}} 
+
+
+<!--Comment cards-->
+{{#each userComment as |comment|}}
+ <section class="container mt-4">
+    <div class="row justify-content-center ">
+        <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12">
+                    <p>
+                        {{comment.comment_content}}
+                    </p>
+                </div>
+                <blockquote class="col-12 author  blockquote text-muted fst-italic fs-6 p-3 mt- border-top border-1">
+                    By {{comment.user.username}} &nbsp; On <span><span>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+{{/each}} 

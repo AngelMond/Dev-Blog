@@ -277,16 +277,16 @@
             </section> -->
 
 <!--Card to show the created posts in dashboard-->
-<section class="row m-3" id="posts"></section>
+<!-- <section class="row m-3" id="posts"></section>
     <article class="col">
         <div class="row card border rounded border-2 p-3">
             <h5 class=" col-12 card-header fs-3 fw-bold text-dark">liam</h5>
             <div class="col-12 card-body">
                 <p class="card-text fs-4">{{post.post_content}}</p>
-            </div>
+            </div> -->
             <!--Button to add a comment-->
                 <!--Button to add a comment in a post-->
-            <div class="row justify-content-start p-2">
+            <!-- <div class="row justify-content-start p-2">
                 <div class="col-3">
                     <div class="d-flex justify-content-center">
                         <button class="btn btn-outline-secondary">Edit Post</button>
@@ -295,8 +295,52 @@
             </div>
         </div>
     </article>
+</section> -->
+
+
+<!--Form to comment a post-->
+<section class="container">
+    <div class="row justify-content-center ">
+        <div class="col-12 col-lg-10 bg-secondary text-white rounded-top p-3">
+            <h3 class="">Comment</h3>
+        </div>
+        <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7">
+                    <form action="/api/comments/{{agregar el id del post}}" method="POST">
+                        <div class="mb-3">
+                            
+                            <textarea class="form-control border border-dark" type="text" name="post_content"
+                                id="postContent"></textarea>
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <input type="submit" class="btn btn-outline-secondary" value="Leave Comment" id="btnCreatePost">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
+
+<!--Comment cards-->
+<section class="container mt-2">
+    <div class="row justify-content-center ">
+        <div class="col-12 col-lg-10 p-3 rounded-bottom border border-secundary shadow-sm">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-12">
+                    <p>
+                        Este es el cuerpo del comentario
+                    </p>
+                </div>
+                <blockquote class="col-12 author  blockquote text-muted fst-italic fs-6 p-3 mt-5 border-top border-1">
+                    Posted By {{post.user.username}} On <span>{{post.createdAt}}</span>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
 
         </main>
 
