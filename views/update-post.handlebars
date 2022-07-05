@@ -27,10 +27,10 @@
                             <a href="/dashboard" type="button" class="btn btn-outline-dark" id="cancelUpdate">Cancel</a>
                         </div>
                     </form>
-                    <form method="POST" action="/api/posts/delete/{{getPost.dataValues.id}}">
+                    <form class="mt-5" method="POST" action="/api/posts/delete/{{getPost.dataValues.id}}">
                         <!--Button to delete a post-->
                         <div class="mb-3 d-grid">
-                            <input value="Delete Post" type="submit" class="btn btn-outline-dark" id="deletePost">
+                            <input value="Delete Post" type="submit" class="btn btn-outline-danger" id="deletePost">
                         </div>
                     </form>
                 </div>
