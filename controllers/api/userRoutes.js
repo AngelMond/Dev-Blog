@@ -91,9 +91,6 @@ router.post('/login', async (req, res) => {
         req.session.loggedIn = true;
         req.session.userId = userData.id;
         req.session.username = userData.username;
-        // req.session.posts = userData.posts
-        // console.log(req.session)
-
         res.status(200).redirect("/dashboard");
       });
     } catch (err) {
@@ -110,11 +107,13 @@ router.post('/singup', async (req, res)=>{
         //Catch the user;s input from the singup form
         const newUser = req.body;
         //Creating a new user with the user's input
-        await Users.create(newUser);
+        const userData = await Users.create(newUser);
 
         // Set up sessions with a 'loggedIn' variable set to `true`
         req.session.save(() => {
           req.session.loggedIn = true;
+          req.session.userId = userData.id;
+          req.session.username = userData.username;
           res.status(200).redirect('/');
         });
     }catch(err){
