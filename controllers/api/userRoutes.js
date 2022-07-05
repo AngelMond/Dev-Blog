@@ -78,7 +78,7 @@ router.post('/singup', async (req, res)=>{
         });
     }catch(err){
         res.status(400).render('singup', {
-          error: 'Username already exists'
+          error: 'Username already exists or password is less than 8 characters'
         });
     }
 });
