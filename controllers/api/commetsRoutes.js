@@ -35,7 +35,7 @@ router.post('/addComment/:id', async (req,res)=>{
         res.status(200).redirect('/');
     }catch(err){
         res.status(500).render('comments-form', {
-            error: 'Please Login first or Singup'
+            error: 'Please first Login or Singup'
         });
     }
 });

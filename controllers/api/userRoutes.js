@@ -29,7 +29,9 @@ router.post('/login', async (req, res) => {
       if (!userData) {
         res
           .status(400)
-          .send({ message: 'Incorrect username or password , please try again' });
+          .render('login', {
+            error: 'Incorrect username or password, please try again'
+          });
         return;
       }
                              
@@ -38,7 +40,9 @@ router.post('/login', async (req, res) => {
       if (!validPassword) {
         res
           .status(400)
-          .send({ message: 'Incorrect username or password, please try again' });
+          .render('login', {
+            error: 'Incorrect username or password, please try again'
+          });
         return;
       }
       //If username exists and password is correct, create a new session and render 'dashboard.handlebars'
