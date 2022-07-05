@@ -2,12 +2,13 @@
 'use strict';
 
 //TODO: require
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
-
-// Import express-session
 const session = require('express-session');
+
+
 
 const routes = require('./controllers/index');
 const sequelize = require('./config/connection');
