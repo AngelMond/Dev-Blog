@@ -34,7 +34,9 @@ router.post('/addComment/:id', async (req,res)=>{
         });
         res.status(200).redirect('/');
     }catch(err){
-        res.status(500).json({message: 'Comment not created'});
+        res.status(500).render('comments-form', {
+            error: 'Please Login first or Singup'
+        });
     }
 });
 
