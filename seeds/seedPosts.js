@@ -3,7 +3,7 @@ const {Posts} = require('../models');
 const postsData = [
     {
         "post_title": "Why MVC is so important",
-        "post_content": "MVC allos developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for desing and the Controller layer for application logic",
+        "post_content": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for desing and the Controller layer for application logic",
         "user_id": 1
     }
     ,
