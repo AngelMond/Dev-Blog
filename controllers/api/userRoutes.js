@@ -16,64 +16,20 @@ router.get('/singup',  (req, res)=>{
 });
 
 
-//Test to get one user with all posts created for that user
-router.post('/', async (req,res)=>{
-  try {
-        const userData = await Users.findOne(
-          {
-            where: { username: req.body.username },
-            include:  
-          [{
-            model: Posts
-          },
-          {
-            model: Comments,
-            attributes: ['comment_content']
-          }],
-             attributes: ['id', 'username']
-          });
-
-
-        if (!userData) {
-          res.status(404).json({ message: 'No user with this id!' });
-          return;
-        }
-        res.status(200).json(userData);
-
-      } catch (err) {
-        console.log(err)
-        res.status(500).json({message: 'Solicitud no procesada'});
-      }
-});
-
-
-
-
-//User login
+//User login route
 router.post('/login', async (req, res) => {
     try {
       //Get the username from the DB and include models Posts and Comments
       const userData = await Users.findOne(
         {
           where: { username: req.body.username },
-        //   include:  
-        // [{
-        //   model: Posts
-        // },
-        // {
-        //   model: Comments,
-        //   attributes: ['comment_content']
-        // }],
-        //    attributes: ['id', 'username']
         });
-      // console.log(userData.username);
-      // console.log(userData.id);
-      
+
       //Validate if the username enter by user exists in the DB
       if (!userData) {
         res
           .status(400)
-          .send({ message: 'Incorrect username , please try again' });
+          .send({ message: 'Incorrect username or password , please try again' });
         return;
       }
                              
@@ -81,8 +37,8 @@ router.post('/login', async (req, res) => {
       const validPassword = await userData.validatePassword(req.body.password);
       if (!validPassword) {
         res
-          .status(400) //EN LAS RESPUESTAS INVALIDAS DEBO DE CARGAR UN MENSAJE DE INVALID.. A MIS TEMPLATES
-          .send({ message: 'Incorrect password, please try again' });
+          .status(400)
+          .send({ message: 'Incorrect username or password, please try again' });
         return;
       }
       //If username exists and password is correct, create a new session and render 'dashboard.handlebars'
@@ -101,7 +57,7 @@ router.post('/login', async (req, res) => {
 
 
 
-//Create new user
+//User sing up route
 router.post('/singup', async (req, res)=>{
     try{
         //Catch the user;s input from the singup form
@@ -117,7 +73,9 @@ router.post('/singup', async (req, res)=>{
           res.status(200).redirect('/');
         });
     }catch(err){
-        res.status(400).send({message: 'Ups! something went wrong. User no created.'});
+        res.status(400).render('singup', {
+          error: 'Username already exists'
+        });
     }
 });
 
