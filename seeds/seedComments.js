@@ -3,20 +3,20 @@ const {Comments} = require('../models');
 const commentsData = [
     {
         "comment_content": "It helps us to maintain an order in the project ",
-        "user_id": 2,
-        "post_id": 1
+        "user_id": 24,
+        "post_id": 4
     }
     ,
     {
         "comment_content": "It's a very interesting topic",
-        "user_id": 3,
-        "post_id": 2
+        "user_id": 14,
+        "post_id": 14
     }
     ,
     {
         "comment_content": "I love sequelize!",
-        "user_id": 1,
-        "post_id": 3
+        "user_id": 4,
+        "post_id": 24
     }
 ]
 

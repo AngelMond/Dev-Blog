@@ -4,19 +4,19 @@ const postsData = [
     {
         "post_title": "Why MVC is so important",
         "post_content": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for desing and the Controller layer for application logic",
-        "user_id": 1
+        "user_id": 4
     }
     ,
     {
         "post_title": "Authentication vs. Authorization",
         "post_content": "There is a difference between Authentication and Authorization. Authentication means confirming your own identity, whereas authorization means being allowed access to the system ",
-        "user_id": 2
+        "user_id": 14
     }
     ,
     {
         "post_title": "Object-Relational-Mapping",
         "post_content": "I have really loved learning about ORM's. It really simplified the way I create queries in SQL!",
-        "user_id": 3
+        "user_id": 24
     }
 ]
 
