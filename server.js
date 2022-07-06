@@ -48,7 +48,7 @@ app.use(routes)
 
 const init = async ()=>{
     try{
-        await sequelize.sync({force:true});
+        await sequelize.sync({force:false});
         app.listen(PORT, ()=>console.log('Web server now listening'))
     }catch(err){
        console.log(err);
