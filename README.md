@@ -86,4 +86,4 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 
 #  Link to deployed web
-<div><a href="https://sheltered-everglades-31029.herokuapp.com/" target="_blank">Got to web!</a></div>
+<div><a href="https://sheltered-everglades-31029.herokuapp.com/" target="_blank">Go to web!</a></div>
