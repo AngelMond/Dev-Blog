@@ -7,8 +7,8 @@
 
 * I designed this app using the MVC architecture pattern.
 
-As a user your able to: Singup and login into your account
-Once you logged in, as user you can: Create, Update and Delete you own posts, as well, you'll be able to comment the others users posts
+As a user your able to: Signup and login into your account
+Once you are register or logged in, you can Create, Update and Delete your own posts, as well, you'll be able to comment other users posts.
 # Technologies
 <div style="display=flex flex-row flex-wrap">
 <img src="https://img.shields.io/badge/-HTML-e34f26?logo=html5&logoColor=fff">
@@ -20,9 +20,9 @@ Once you logged in, as user you can: Create, Update and Delete you own posts, as
 <img src="https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=fff">
 </div>
 
-* FrontEnd: Bootstrap, handlebars.
+* FrontEnd: Bootstrap.
 
-* BackEnd: JavaScript, NodeJS, Express, MySQL, Sequelize, Bcrypt, Express-Session
+* BackEnd: JavaScript, NodeJS, Express, MySQL, Sequelize, Bcrypt, Express-Session, Bcrypt to hash passwords and Handlebars to display all the views.
 
 ## User Story
 
